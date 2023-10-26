@@ -74,6 +74,17 @@ stdenv.mkDerivation ({
       /* Don't use /etc/ld.so.cache, for non-NixOS systems.  */
       ./dont-use-system-ld-so-cache.patch
 
+      /* ldconfig doesn't generate ld.so.cache entries when symlink name
+         doesn't match its SONAME. E.g. for ncurses ABI compat, we have
+         libtinfo.so.5 -> ... -> libncursew.so.5.9 which has SONAME of
+         libncursesw.so.5, and then libtinfo.so.5 won't be added into the
+         cache. Plus the fact that we install glibc to a prefixed path and
+         thus /lib is not searched means that libtinfo.so.5 isn't discovered
+         properly in FHS env.
+
+         This patch ignores the SONAME checking. */
+      ./ldconfig-ignore-link-soname.patch
+
       /* Don't use /etc/ld.so.preload, but /etc/ld-nix.so.preload.  */
       ./dont-use-system-ld-so-preload.patch
 
