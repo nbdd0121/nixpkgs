@@ -16,25 +16,26 @@
 
 rustPlatform.buildRustPackage {
   pname = "cosmic-comp";
-  version = "unstable-2023-11-13";
+  version = "unstable-2023-12-23";
 
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-comp";
-    rev = "d051d141979820f50b75bd686c745fb7f84fcd05";
-    hash = "sha256-8okRiVVPzmuPJjnv1YoQPQFI8g0j1DQhwUoO51dHgGA=";
+    rev = "144f8cbf699f7b6588fb357a4d04726d1398738b";
+    hash = "sha256-ieI2iUyBYL8wjnbKvjkvNLa7cjZJ0J8vfh96RGLymJU=";
   };
 
   cargoLock = {
     lockFile = ./Cargo.lock;
     outputHashes = {
-      "cosmic-config-0.1.0" = "sha256-5WajbfcfCc0ZRpJfysqEydthOsF04ipb35QVWuWKrEs=";
-      "cosmic-protocols-0.1.0" = "sha256-st46wmOncJvu0kj6qaot6LT/ojmW/BwXbbGf8s0mdZ8=";
+      "atomicwrites-0.4.2" = "sha256-QZSuGPrJXh+svMeFWqAXoqZQxLq/WfIiamqvjJNVhxA=";
+      "cosmic-config-0.1.0" = "sha256-B0N0802anWMKDTMbIfr9RvxsbdHn8UFO/bqtpc7mw8s=";
+      "cosmic-protocols-0.1.0" = "sha256-AEgvF7i/OWPdEMi8WUaAg99igBwE/AexhAXHxyeJMdc=";
       "id_tree-1.8.0" = "sha256-uKdKHRfPGt3vagOjhnri3aYY5ar7O3rp2/ivTfM2jT0=";
-      "smithay-0.3.0" = "sha256-e6BSrsrVSBcOuF8m21m74h7DWZnYHGIYs/4D4ABvqNM=";
+      "smithay-0.3.0" = "sha256-UQwYV3GOkZHEFyAMRMY46JiFXsdsjfSVHAHlA47ZAtI=";
       "smithay-egui-0.1.0" = "sha256-FcSoKCwYk3okwQURiQlDUcfk9m/Ne6pSblGAzHDaVHg=";
-      "softbuffer-0.2.0" = "sha256-VD2GmxC58z7Qfu/L+sfENE+T8L40mvUKKSfgLmCTmjY=";
-      "taffy-0.3.11" = "sha256-0hXOEj6IjSW8e1t+rvxBFX6V9XRum3QO2Des1XlHJEw=";
+      "softbuffer-0.3.3" = "sha256-eKYFVr6C1+X6ulidHIu9SP591rJxStxwL9uMiqnXx4k=";
+      "taffy-0.3.11" = "sha256-SCx9GEIJjWdoNVyq+RZAGn0N71qraKZxf9ZWhvyzLaI=";
     };
   };
 
