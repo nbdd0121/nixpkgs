@@ -30,6 +30,10 @@ in
       xdg-desktop-portal-cosmic
     ];
 
+    xdg.portal.extraPortals = with pkgs; [
+      xdg-desktop-portal-cosmic
+    ];
+
     # session files for display manager and systemd
     services.xserver.displayManager.sessionPackages = with pkgs; [ cosmic-session ];
     systemd.packages = with pkgs; [ cosmic-session ];
