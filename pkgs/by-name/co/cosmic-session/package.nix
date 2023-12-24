@@ -41,6 +41,10 @@ rustPlatform.buildRustPackage rec {
     substituteInPlace src/main.rs --replace '/usr/libexec/xdg-desktop-portal-cosmic' "${xdg-desktop-portal-cosmic}/bin/xdg-desktop-portal-cosmic"
   '';
 
+  postInstall = ''
+    substituteInPlace $out/share/wayland-sessions/cosmic.desktop --replace '/usr/bin/start-cosmic' "$out/bin/start-cosmic"
+  '';
+
   nativeBuildInputs = [ just ];
   buildInputs = [ ];
 
@@ -51,6 +55,10 @@ rustPlatform.buildRustPackage rec {
     "prefix"
     (placeholder "out")
   ];
+
+  passthru = {
+    providedSessions = [ "cosmic" ];
+  };
 
   meta = with lib; {
     homepage = "https://github.com/pop-os/cosmic-session";
