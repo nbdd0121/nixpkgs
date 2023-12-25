@@ -31,7 +31,17 @@ in
     ];
 
     xdg.portal.extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
       xdg-desktop-portal-cosmic
+    ];
+
+    xdg.portal.configPackages = [
+      (pkgs.writeTextDir "share/xdg-desktop-portal/cosmic-portals.conf" ''
+        [preferred]
+        default=gtk
+        org.freedesktop.impl.portal.Screencast=cosmic
+        org.freedesktop.impl.portal.Screenshot=cosmic
+      '')
     ];
 
     # session files for display manager and systemd
